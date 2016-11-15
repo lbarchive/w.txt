@@ -1,0 +1,55 @@
+
+
+                             CAP_NET_BIND_SERVICE
+
+
+                     CREATED      BY Yu-Jie Lin
+                                  AT 2016-11-15T01:56:03Z
+                     LAST UPDATED AT -
+
+                     PLACED   IN    THE PUBLIC DOMAIN  OR
+                     LICENSED UNDER THE UNLICENSE LICENSE
+
+
+                                   PURPOSE
+
+
+A process with CAP_NET_BIND_SERVICE permission is allowed to, from 
+capabilities(7):
+
+    Bind a socket to Internet domain privileged ports (port numbers less than 
+    1024).
+
+In other words, the process can bind a socket to a privileged port such as 
+port 80 without being a privileged user's process, that is a normal user can 
+run a program which can open any ports in range of 0/1-1023.
+
+
+                                    setcap
+
+
+To grant the permission to a file, setcap can be used in the following 
+example:
+
+    # setcap CAP_NET_BIND_SERVICE=ep program
+    # getcap program  # to confirm
+
+Where `=ep` means raising Effective and Permitted masks, and lowering 
+Inheritable mask, which should be desired here, see cap_from_text(3). Note 
+that the capability name is case insensitive.
+
+
+                                capsh --addamb
+
+
+The setcap will not work if, for instance, the program is a script that 
+requires an interpreter. You will need to grant the capability on the 
+interpreter, which might not be ideal.
+
+With kernel 4.3+ (2015-11-01), "Ambient capabilities [1]" (2015-03-15) is 
+supported, see capability(7); and the upcoming release -- possibly version 
+2.26 -- of libcap, whose capsh can manipulate the ambient capabilities sets, 
+see an explanation [1] for details.
+
+[1] https://lwn.net/Articles/636533/
+[2] http://stackoverflow.com/a/37487053/242583
