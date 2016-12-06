@@ -1,0 +1,121 @@
+2016-12-06        Yu-Jie Lin       Public Domain | UNLICENSE        ----------
+
+
+                          A Good Capture of Terminal
+
+
+Here are some of my thoughts or guidelines about making a good screenshot or 
+screencast of activities in terminal window. I can't say that I am an expert 
+of producing great quality of images or animated GIFs, but I have seen many 
+and produced quite a number myself.
+
+This is not a step-by-step guide about what commands or tools to use, but what 
+end result can demonstrate the better. It's a list of bullet points, to put it 
+simply.
+
+
+                                   KISS KAT
+
+
+* KISS
+
+    Don't over do it, "Keep it simple, stupid [1]."
+
+    [1] https://en.wikipedia.org/wiki/KISS_principle
+
+* KAT
+
+    First of all, the focus is the terminal programs, so crop out the 
+    decoration border or take time to determine the exact terminal window 
+    region to record. No, it doesn't save much in terms of file size, but it 
+    looks cleaner.
+
+    You probably have great wallpaper, but really don't need to capture it,
+    and turn off window transparency and any eye candies of desktop 
+    environment.
+
+    Leave out unrelated parts, Keep All in Terminal.
+
+
+                                  THE FOCUS
+
+
+* No need for the typing
+
+    Almost all the GIFs have captured the typing process. Do viewers really 
+    need to watch you typing? One might argue that the process guides the 
+    viewer mentally as their eyes follow, well, it could be.
+
+    Why not just take screenshots of the complete command typed and the result 
+    of execution, give two frames longer delays? The benefits are
+
+      a. smaller size and
+      b. clean cuts, literally.
+
+* Prompt too fancy
+
+    There are a lot of prompt tools/styles, such as VCS status or date/time.  
+    Do your viewers need such distractions? Here is a good example of the 
+    distractions [1].
+
+    [1] https://github.com/mingrammer/gomo/blob/48e3502/image/gomo-gif.gif
+    
+    Consider the following simplest prompt before the capture,
+
+      PS1='$ '
+
+    Remember it's the commands and the outputs that everyone wants, not your 
+    colorful and informative prompt about your current environment, that has 
+    nothing to do with the program.
+
+    However, if the topic is the prompt, then by all means.
+
+
+                               THE RIGHT MEDIUM
+
+
+* Screenshot or literal block?
+
+    If the output is simple text, that is no colors, perhaps a direct 
+    copy-and-paste would serve better than a screenshot.
+
+    This example [1] put commands and outputs in literal blocks, do you need 
+    screenshots? And the viewers can try out by easily copy the commands and 
+    paste into their terminals.
+
+    [1] https://github.com/nk412/quickhist/blob/ec30171/README.md
+
+* Screenshot or Screencast?
+
+    If it's not interactive, simple screenshots could be better. But it's no 
+    harm to use animated GIFs for a serial commands.
+
+    This is one screenshot [1] of three commands, clean result, there is no 
+    need for animation.
+
+    [1] https://github.com/Swatto/td/blob/aebc4ab/screenshot.png
+
+
+                                OTHER THOUGHTS
+
+
+* Size matters
+
+    Try to resize the terminal window, probably size down, minimize unused 
+    terminal space. Make sure the image size won't be scaled down in the 
+    rendered HTML.
+
+    Animated GIFs are nice if used properly, longer play time doesn't mean 
+    better or comprehensive. Keep it short and clean, and split into parts if 
+    necessary.
+
+    Also beware of the font size, choose a proper size, because not everyone 
+    is used to your terminal font.
+
+* Delay matters
+
+    Make sure the viewers have enough time to at least skimming over the 
+    content.
+
+    If you record, wait for a reasonable time before next command; if you 
+    produce from still frames, choose good delays.
