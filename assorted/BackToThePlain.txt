@@ -1,0 +1,58 @@
+2016-10-25        Yu-Jie Lin       Public Domain | UNLICENSE        ----------
+
+
+                            BACK TO THE PLAIN.TXT
+
+
+Roughly six months ago, I ended my affair with blogging that lasted for more 
+than a decade. I might not be missing blogging, but I did feel a certain 
+degree of emptiness.
+
+So here you should be reading this in plain text, but why?
+
+The Internet -- especially the modern day HTML and its associates, such as CSS 
+and JavaScript -- has been ridiculously weaved into a complicated web. The web 
+browsers, their sole purpose was to render the information that visitor seeks 
+for, now has become an over-stuffed snuggies, which I hesitate to cuddle with, 
+because they look monstrous rather than cute and adorable.
+
+Even I tried to keep my own blog clean with attempts to strip down, but in the 
+end, it's still too much. The layout, the design, and so on; each has dots 
+linking to other things. I was supposed to write a blog, not writing a 
+website. Perhaps, it's just that I couldn't design a theme is simple enough on 
+a complex foundation.
+
+The content is what I want to write and what readers want to read, that's all 
+what a blog really needs, the written words.
+
+Unable to resolve, blogging ceased.
+
+                                  * * * * *
+
+An open source project called "bucklespring" that triggered me to bring up 
+typewriter in a conversation with someone. Never owned a typewriter, but I've 
+always been fascinated by the pages produced with those intriguing machines.  
+The hard press, the white sheet, and the flow of letters into a piece of work.
+
+In a way, I know that's how I want my blog to look like; from another 
+perspective, that's plain text.
+
+Blog, what is it, really? Do I have to use HTML? Unfortunately, I would say 
+the answer leans towards a yes.
+
+Nevertheless, I decided to go back to the plain text and that's why this place 
+is called "w.txt," where 'w' is short for writings and since all the entries 
+would be written in plain text format, by the convention, hence the ".txt" 
+extension. w.txt means my writings in plain text.
+
+Frankly, I do not know how this would fare, but I know I won't be writing on a 
+blog, I will be writing.txt.
+
+                                  * * * * *
+
+Going back? That sounds as if I've written something in plain text, but the 
+truth is I don't really remember if I have actually written in plain text 
+format. Nonetheless, I'm doing it, I'm writing it.
+
+I don't want to set up any writing style, I'd just go as I write, it could be 
+a mess, but we shall see.
