@@ -1,0 +1,74 @@
+2016-12-13        Yu-Jie Lin       Public Domain | UNLICENSE        ----------
+
+
+                     Launching X11 Program from Terminal
+
+
+tl;dr xr(){ nohup "$@" &>/dev/null & }; complete -A command xr or x [A].
+
+When I first started using Linux, the GNOME DE (desktop environment) to be 
+precise, I relied on the application menu on the top bar as every new Linux 
+user would do. As I became more familiar with Linux and tried a few other DEs 
+and then switching to WM-only (window manager) environment, a program launch 
+would come in handy.
+
+If I recall correctly, the first one I used was gmrun [1] (GTK+2) with Xfce 
+and Fluxbox. Later, I switched to Bashrun [2] 0.16, which I had been using for 
+more than six years.
+
+[1] https://sourceforge.net/projects/gmrun/
+[2] http://bashrun.sourceforge.net/
+
+Bashrun is a nice launcher, it's written in Bash, comes with Bash 
+auto-completion, but it's still too big and I wonder why I needed a launcher 
+if I have terminal all the time. I have always had a shell ready to be 
+commanded.
+
+It finally clicked in my mind, I don't need any program launcher, I already 
+have one the whole time.
+
+The thing is although launching a X11 program is straight forward and but it's 
+not as it seems. You can just type in the command and execute, the program 
+would show up. The issue is that you don't want the shell to hang in there 
+with the X11 program and those messages comes out of the program.
+
+Initially, I wrote the following simple Bash function,
+
+    xr ()
+    {
+      nohup "$@" &>/dev/null &
+    }
+
+"xr" dubs as "X run," typed with just left hand on qwerty keyboard. It uses 
+nohup to prevent hangups and redirect standard output/error to /dev/null, we 
+don't need or want to see those since we already don't see those when you 
+launch with other program launcher. The nohup itself it running in background.
+
+Here was what I type to launch an X11 program:
+
+    $ foo[TAB]  # utilize auto-completion
+    $ foobar <arguments or completion>[C-A/Home]  # cursor to beginning
+    $ xr foobar <...>[Enter]
+    [2] 12345
+    $ ...
+    [2]+  Done                    nohup "$@" &> /dev/null
+
+There are extra [C-A] and "xr " to type, and job notifications by Bash are 
+present, which can be avoid if I turn xr() into a script, see [A]. It's not 
+perfect, but it would do fine. There might be a more seamless way to do this, 
+but I am not aware of any.
+
+I think xr with tab-completion of commands from $PATH should be enough, there 
+really is no need for command's bash-completion. We don't usually run GUI with 
+arguments, and I don't think many would supply a bash-completion script. The 
+solution for that is to tell Bash to complete xr with command names:
+
+    complete -c xr  # or -A command
+
+Unfortunately, this also includes shell keywords/builtins, but close enough.
+
+
+                                  - - - - -
+
+
+[A] https://github.com/livibetter/x
