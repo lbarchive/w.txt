@@ -1,0 +1,77 @@
+2017-01-04               Yu-Jie Lin               CC0               ----------
+
+
+                                  getopt(1)
+
+
+getopt(1) is part of util-linux, Bash has its own builtin implementing POSIX 
+getopts(1P).
+
+There is a couple of benefits of using getopt:
+
+1. optional argument to an option, that is -oaugment or --opt=augment.
+2. long option names, that is --foobar.
+
+
+                                   EXAMPLE
+
+
+  #!/bin/bash
+  # try with:
+  #  -r 123 --optional 7 8 9
+  #  -r 123 --optional=456 7 8 9
+
+  NAME="$(basename "$0")"
+
+  usage()
+  {
+    echo "Usage: $NAME [options]
+
+  Options:
+
+    -r, --required    option with required argument
+    -o, --optional    option with optional argument
+    -h, --help        this help message
+  "
+  }
+
+  parse_opts()
+  {
+    eval set -- $(getopt \
+      -n "$NAME" \
+      -l 'required:,optional::,help' \
+      -o r:o::h \
+      -- "$@")
+    while (($#)); do
+      case "$1" in
+        -r|--required)
+          r_arg="$2"
+          shift 2
+          ;;
+        -o|--optional)
+          o_arg="${2:-DEFAULT}"
+          shift 2
+          ;;
+        -h|--help)
+          usage
+          exit
+          ;;
+        --)
+          shift
+          break
+      esac
+    done
+
+    args=("$@")
+  }
+
+  main()
+  {
+    parse_opts "$@"
+
+    echo "required = $r_arg"
+    echo "optional = $o_arg"
+    echo "args     = ${args[@]}"
+  }
+
+  main "$@"
