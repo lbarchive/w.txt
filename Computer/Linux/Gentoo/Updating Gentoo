@@ -1,0 +1,60 @@
+2017-01-05               Yu-Jie Lin               CC0               ----------
+
+
+                               Updating Gentoo
+
+
+Notes about my current updating procedure and policy.
+
+
+                              CURRENT PROCEDURE
+
+
+Syncing and checking packages list
+
+  % eix-sync
+  $ emerge -pvuDt1 <GLSA packages>
+  $ emerge -pvuDt world
+
+Removing unused packages first
+
+  $ emerge -pv --depclean <packages>
+
+Producing a list of obsolete packages from @world pulled packages
+
+  $ emerge -puD world | sed -n '/\[ebuild/ s/-[0-9].*//p' | cut -c 18- > list
+  $ while read pn; do eix -I -\# -T $pn ; done < list > pkgs
+
+  The commands can be done with obsolete-pulled-packages.sh [1].
+
+  [1] https://github.com/livibetter/dotfiles/blob/master/.local/bin/obsolete-pulled-packages.sh
+
+Double checking
+
+  $ emerge -pvut1 <GLSA packages> $(<pkgs)
+
+Updating
+
+  % emerge -qu1 <GLSA packages> $(<pkgs)
+  $ rm list pkgs
+
+
+
+                               POLICIES HISTORY
+
+
+2016-09-26 GLSA Prompted
+
+    Only syncing and updating upon a GLSA, and only update:
+    
+    1. the GLSA packages and
+    2. @world pulled packages are obsolete.
+
+2014-02-07 Monthly
+
+    Weekly was still too much work.
+
+2010-11-28 Weekly
+
+    Since Gentoo installed on 2009-04-16, I synced almost daily, and finally 
+    realized that it was not necessary.
