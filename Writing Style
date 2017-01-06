@@ -1,0 +1,49 @@
+2017-01-06               Yu-Jie Lin               CC0               ----------
+
+
+                                Writing Style
+
+
+A. Header Line
+
+    Header Line is the first line of text file with four elements, evenly 
+    spaced, from left to right, created date, name, copyright, updated date.
+
+B. Title Line and Description Line
+
+    Two lines are centered and have one gap line between them, two blank lines 
+    around them.  The Description Line is optional.
+    
+    Title Line should at least match filename, for example, 
+    Computer/Programming/C/Coding Style. The Title Line should be at least 
+    "Coding Style," but "Coding Style for C" would be more complete.
+
+C. TOP-LEVEL SECTIONS
+
+    First-level sections are centered and ALL CAPS with two blank line 
+    margins.
+
+D. Second-Level Sections
+
+    Second-level sections are centered and Title Cased with one blank line 
+    margins.
+
+E. Paragraphs, Literal Block, Lists
+
+    Paragraphs and lists have no left margin, Literal Block has 2-space.
+    Sentences are separated by 2 spaces.
+
+F. Indentations
+
+    Each level of indentation is 4 spaces.
+
+G. Links and Footnotes
+
+    - Use "[n]" as marks, where n is a digit, placed one space after the 
+      linked text.
+    - An "[n] URL" line is placed right after the paragraph on the same 
+      indentation level.
+    - If same URL is linked more than once, n is an upper case alphabet, and 
+      only the first linking has the URL line.
+    - For footnotes, n is a character other than digit or alphabet,
+      following the same rules as links.
