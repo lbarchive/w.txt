@@ -1,0 +1,25 @@
+2017-01-01               Yu-Jie Lin               CC0               ----------
+
+
+                                    const
+
+
+                               const char * ch;
+                               char * const ch;
+
+
+Read from right, ch is a:
+
+1. (*) pointer to (char) (const)ant variable.
+2. (const)ant (*) pointer to (char) variable.
+
+From there,
+
+1. ch points to a constant char, itself is mutable, but not the pointed char.
+2. ch is a constant pointer, that is immutable, but the char is mutable.
+
+
+                            const char * const ch;
+
+
+Never seen anyone wrote that.
