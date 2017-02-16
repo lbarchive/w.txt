@@ -24,8 +24,10 @@ Producing a list of obsolete packages from @world pulled packages
 
   $ emerge -puD world | sed -n '/\[ebuild/ s/-[0-9].*//p' | cut -c 18- > list
   $ while read pn; do eix -I -\# -T $pn ; done < list > pkgs
+  $ emerge -pv --depclean $(<pkgs)
 
-  The commands can be done with obsolete-pulled-packages.sh [1].
+  The commands can be done with obsolete-pulled-packages.sh [1]. And checking 
+  the pkgs to see if they are no longer in use, if so, remove those.
 
   [1] https://github.com/livibetter/dotfiles/blob/master/.local/bin/obsolete-pulled-packages.sh
 
