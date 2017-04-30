@@ -1,0 +1,45 @@
+2017-04-29               Yu-Jie Lin               CC0               ----------
+
+
+                          Project-based Environment
+
+
+                                   PURPOSE
+
+
+This text documents my current ways to achieve project-based environment with 
+the following conditions and rationales:
+
+0. Using :mksession to save and command-line option -S to restore
+
+   It's built-in functionality.
+
+1. Not using plugins
+
+   I do not wish to additional plugins to preserve/restore.
+
+2. Not using user vimrc
+
+   Projects come and go, and every project has different needs/settings, vimrc 
+   would be a mess after numerous projects additions/removals.
+
+3. Not using exrc feature
+
+   Security and it's not enabled by default.
+
+
+                                  IMPLEMENTS
+
+
+Instead of loading a session file which created by :mksession, I create a 
+startup.vim, for example:
+
+  %bw
+  let s:vimfiles = expand('<sfile>:p:h') . '/'
+  let &spellfile= s:vimfiles . 'spell.utf-8.add,~/.vim/spell/en.utf-8.add'
+  exec ':nnoremap <F2> :mksession! ' . s:vimfiles . 'sessions.vim<CR>'
+  exec 'source ' . s:vimfiles . 'sessions.vim'
+
+One reason for using startup.vim is shown in the example above, the :mksession 
+does not save options with names in all lower cases, in this case, option 
+spellfile.  It also makes a key to simplify the session saving.
