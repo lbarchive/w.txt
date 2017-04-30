@@ -1,0 +1,18 @@
+2017-04-30               Yu-Jie Lin               CC0               ----------
+
+
+                           Scripting with Variables
+
+
+                       SETTING VARIABLE WITH VARIABLES
+
+
+  let s:vimfiles = expand('<sfile>:p:h') . '/'
+  let &spellfile= s:vimfiles . 'spell.utf-8.add,~/.vim/spell/en.utf-8.add'
+
+
+                              WITH VIM COMMANDS
+
+
+  exec ':nnoremap <F2> :mksession! ' . s:vimfiles . 'sessions.vim<CR>'
+  exec 'source ' . s:vimfiles . 'sessions.vim'
